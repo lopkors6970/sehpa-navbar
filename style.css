@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+.max-width{
+    max-width: 1300px; /* telefonlarda uyumluluk icin yazildi */
+    padding: 0 80px; /* soldan ve sagdan 80 px bosluk bırakıldı */
+    margin: auto; /* cok fazla bir sey farketmedi */ 
+}
+.navbar{
+    background: black;
+    z-index: 999;
+    position: fixed;
+    width: 100%;
+    padding: 30px 0; /* genislik vererek navbarımızın büyümesi saglandı !!!!!! ilk basta 15px di background'u kaldırınca 30px yapıldı daha 
+    güzel bir görünüm için */ 
+    /*background: crimson; sonradan kaldırıldı görünüşü daha rahat kontrol edebilmek icin tanımlanmıstı */
+    font-family: 'Ubuntu', sans-serif;
+    transition: all 0.3s ease; /* gecisi yumusatmak icin kullanıldı */ 
+}
+.navbar.sticky{
+    padding: 15px 0; /* 15 px yapılma sebebi büyük kalıyordu */
+    background: crimson;
+}
+.navbar .max-width{
+    display: flex; /* bununla birlikte yazılar portfolio nun yanına geçti. */
+    align-items: center; /* dikeyde ortalandı */
+    justify-content: space-between; /* sag ve sola yapıstılar birbirlerinden ayrıldılar */ 
+}
+.navbar .logo a{
+    color: #fff;
+    font-size: 35px;
+    font-weight: 600;
+}
+.navbar .logo a span{
+    color: white;
+    transition: all 0.3s ease;
+}
+.navbar .logo a span:hover{
+    color: crimson;
+}
+.navbar .menu li{
+    display: inline-block; /* alt alta olan yan yana sıralamaya geçti */
+}
+.navbar .menu li a {
+    color: #fff;
+    font-size: 17px;
+    font-weight: 500;
+    margin-left: 25px; /* birbirleri arasında bosluk bıraktı  */
+    transition: color 0.3s ease; /* gecis sırasında daha yavas bi sekilde gerçekleşecek */ 
+}
+.fas{   
+    margin-right: 5px;
+}
+.navbar .menu li a:hover{
+    color: crimson;
+}
+
+/* menu btn styling */
+.menu-btn{
+    color: #fff;
+    font-size: 23px;
+    cursor: pointer;
+    display: none; /* amacı ilk basta görüntülenmesini engellemek*/ 
+}
+@media (max-width: 991px){
+    .max-width{ 
+        padding: 0 50px;
+    }
+}
+@media (max-width: 947px){
+    .logo span{
+        margin-left: 40px;
+    }
+    .fas{
+        margin-right: 10px;
+    }
+    .menu-btn{
+        display: block; 
+        z-index: 999; /* ekranda görünür hale gelmesi icin */
+    }
+    .menu-btn i.active::before{/* after deyince iki ikon da gözükür before deyince sadece x gözükür. */
+        content: "\f00d";
+    }
+    .navbar .menu{
+        position: fixed;
+        background: #111;
+        height: 100vh;
+        width: 100%;
+        left: -100%; /* sayfa kuculuncu ekrandan gitti */
+        top: 0;
+        text-align: center; /* yatayda yazılar ortalandı */ 
+        padding-top: 80px; /* yukarıdan 80px lik bir bosluk bırakıldı */ 
+        transition: all 0.3s ease; /* soldan saga gecis saglanırken daha yavas gecmesini saglamak icin */
+    }
+    .navbar .menu.active{
+        left: 0;
+    }
+    .navbar .menu li{
+        display: block; /* üstlerine gelince kırmızı olması aktifleşti alt alta dizilecek */
+    }
+    .navbar .menu li a{
+        display: inline-block;
+        margin: 20px 0;
+        font-size: 25px;
+    }
+    .max-width{
+        max-width: 800px;
+    }
+}   
+
+@media (max-width: 690px){
+    .max-width{ 
+        padding: 0 23px;
+    }
+}
